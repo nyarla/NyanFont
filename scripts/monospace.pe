@@ -1,0 +1,102 @@
+#!/usr/bin/env fontforge -lang=ff
+
+SetPref("CoverageFormatsAllowed", 1);
+SetPref("ClearInstrsBigChanges", 0);
+SetPref("CopyTTFInstrs", 1);
+
+Open($1);
+
+MergeFonts($2);
+MergeFonts($3);
+
+Select(0u0110); Copy();
+Select(0u0044); Paste();
+
+Select(0u00a6); Copy();
+Select(0u007c); Paste();
+
+Select(0u00a6); Copy();
+Select(0u007c); Paste();
+
+Print("Set font properties");
+
+SetOS2Value("TypoAscentIsOffset", 0);
+SetOS2Value("TypoDescentIsOffset", 0);
+SetOS2Value("TypoAscent", 881);
+SetOS2Value("TypoDescent", -143);
+SetOS2Value("TypoLineGap", 0);
+
+SetOS2Value("HHeadAscentIsOffset", 0);
+SetOS2Value("HHeadDescentIsOffset", 0);
+SetOS2Value("HHeadAscent", 881);
+SetOS2Value("HHeadDescent", -143);
+SetOS2Value("HHeadLineGap", 0);
+SetOS2Value("VHeadLineGap", 0);
+
+SetOS2Value("WinAscentIsOffset", 0);
+SetOS2Value("WinDescentIsOffset", 0);
+SetOS2Value("WinAscent", 901);
+SetOS2Value("WinDescent", 163);
+
+SetOS2Value("SubXSize", 666);
+SetOS2Value("SubYSize", 716);
+SetOS2Value("SubXOffset", 0);
+SetOS2Value("SubYOffset", 143);
+
+SetOS2Value("SupXSize", 666);
+SetOS2Value("SupYSize", 716);
+SetOS2Value("SupXOffset", 0);
+SetOS2Value("SupYOffset", 215);
+
+SetOS2Value("StrikeOutSize", 50);
+SetOS2Value("StrikeOutPos", 440);
+
+SetOS2Value("Width", 512);
+SetOS2Value("Weight", 350);
+
+version   = "0.1.0";
+copyright = StrJoin([ GetTTFName(0x409, 0) \
+            , "" \
+            , "[Gen Jyuu Gothic X]" \
+            , "Copyright (C) http://jikasei.me/ by MM" \
+            , "" \
+            , "[Inconsolata]" \
+            , "Copyright (C) Raph Levien" \
+          ], "\\n");
+
+vendorId  = "NYRL";
+vendorURL = "https://github.com/nyarla/NyanFont/";
+family    = "Nyan Monospace";
+subFamily = "Regular";
+fontName  = "Nyan-Monospace-Regular";
+fullName  = StrJoin([ family, subFamily ], " ");
+uniqueID  = StrJoin([ version, vendorId, fontName, vendorId ], ";");
+designer  = StrJoin([ GetTTFName(0x409, 9) \
+          , "" \
+          , "[Gen Jyuu Gothic X]" \
+          , "http://jikasei.me by MM" \
+          , "" \
+          , "[Inconsolata]" \
+          , "Raph Levien" ], "\\n");
+
+SetFontNames(fontName, family, fullName, "Normal", copyright, version);
+
+SetTTFName(0x409, 0, copyright);
+SetTTFName(0x409, 1, family);
+SetTTFName(0x409, 2, subFamily);
+SetTTFName(0x409, 3, uniqueID);
+SetTTFName(0x409, 4, fullName);
+SetTTFName(0x409, 5, StrJoin(["version" + version], " "));
+SetTTFName(0x409, 9, designer);
+SetTTFName(0x409, 11, vendorURL);
+SetTTFName(0x409, 16, family);
+SetTTFName(0x409, 17, subFamily);
+
+SetTTFName(0x411, 1, family);
+SetTTFName(0x411, 4, fullName);
+SetTTFName(0x411, 16, family);
+SetTTFName(0x411, 17, subFamily);
+
+SetOS2Value("VendorID", vendorId);
+
+Generate($4);

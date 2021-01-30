@@ -1,0 +1,102 @@
+#!/usr/bin/env fontforge -lang=ff
+
+SetPref("CoverageFormatsAllowed", 1);
+SetPref("ClearInstrsBigChanges", 0);
+SetPref("CopyTTFInstrs", 1);
+
+Open($1);
+
+char = 0u0020;
+Select(char);
+++char;
+
+# U+0020 - U+007E
+
+while ( char < 0u007F )
+  SelectMore(char);
+  ++char;
+endloop
+
+
+# U+00A0 - U+03FF
+char = 0u00A0;
+while ( char < 0u0400 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+1E00 - U+1EFF
+char = 0u1E00;
+while ( char < 0u1F00 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2000 - U+20CF
+char = 0u2000;
+while ( char < 0u20D0 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2100 - U+214F
+char = 0u2100;
+while ( char < 0u2150 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2190 - U+21FF
+char = 0u2190;
+while ( char < 0u2200 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2200 - U+243F
+char = 0u2200;
+while ( char < 0u2440 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2500 - U+27BF
+char = 0u2500;
+while ( char < 0u27C0 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2B00 - U+2BFF
+char = 0u2B00;
+while ( char < 0u2C00 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+2E00 - U+2E7F
+char = 0u2E00;
+while ( char < 0u2E80 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+FFF0 - U+2FFFD
+char = 0uFFF0;
+while ( char < 0uFFFE )
+  SelectMore(char);
+  ++char;
+endloop
+
+SelectInvert();
+Clear();
+SelectInvert();
+
+ScaleToEm(892, 132);
+Move(0, 48);
+
+SetItalicAngle(30);
+ClearHints();
+ClearInstrs();
+
+Save($2);

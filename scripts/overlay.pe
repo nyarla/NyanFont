@@ -1,0 +1,32 @@
+#!/usr/bin/env fontforge -lang=ff
+
+SetPref("CoverageFormatsAllowed", 1);
+SetPref("ClearInstrsBigChanges", 0);
+SetPref("CopyTTFInstrs", 1);
+
+Open($1);
+
+# U+3040 - U+30FF
+char = 0u3034;
+Select(char);
+while ( char < 0u3100 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+FF00 - U+FFEF
+char = 0uFF00;
+while ( char < 0uFFF0 )
+  SelectMore(char);
+  ++char;
+endloop
+
+SelectInvert();
+Clear();
+
+SelectInvert();
+ScaleToEm(881, 143);
+Move(0, 48);
+SetItalicAngle(30);
+
+Save($2);

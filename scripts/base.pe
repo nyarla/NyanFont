@@ -1,0 +1,78 @@
+#!/usr/bin/env fontforge -lang=ff
+
+SetPref("CoverageFormatsAllowed", 1);
+SetPref("ClearInstrsBigChanges", 0);
+SetPref("CopyTTFInstrs", 1);
+
+Open($1);
+
+# U+2E80 - U+3040
+char  = 0u2E80;
+Select(char);
+++char;
+
+while ( char < 0u3040 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+3041 - U+9FFF
+char  = 0u3041;
+Select(char);
+++char;
+
+while ( char < 0uA000 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+F900 - U+FAFF
+char = 0uF900;
+while ( char < 0uFA20 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+16FE0 - U+16FFF
+char = 0u16FE0;
+while ( char < 0u17000 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+1B000 - U+1B0FF
+char = 0u1B000;
+while ( char < 0u1B100 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+1B100 - U+1B12F
+char = 0u1B100;
+while ( char < 0u1B130 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+1F200 - U+1F2FF
+char = 0u1F200;
+while ( char < 0u1F300 )
+  SelectMore(char);
+  ++char;
+endloop
+
+# U+1F200 - U+1F2FF
+char = 0u20000;
+while ( char < 0u2FA20 )
+  SelectMore(char);
+  ++char;
+endloop
+
+SelectInvert();
+Clear();
+
+SelectInvert();
+Move(0, -8);
+SetItalicAngle(30);
+
+Save($2);
