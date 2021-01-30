@@ -1,17 +1,17 @@
 all: \
-	out/Nyan-Monospace-Regular.ttf
+	out/NyanFont-Monospace-Regular.ttf
 
 clean:
 	rm -rf out/*.sfd
 	rm -rf out/*.ttx
 	rm -rf out/*.ttf
 
-out/Nyan-Monospace-Regular.ttf:
+out/NyanFont-Monospace-Regular.ttf:
 	@$(MAKE) monospace \
 		BASE=src/GenJyuuGothicX-Monospace-Regular.ttf \
 		OVERLAY=src/rounded-x-mplus-2m-regular.ttf \
 		ASCII=src/Inconsolata-Regular.ttf \
-		DST=out/Nyan-Monospace-Regular.ttf
+		DST=out/NyanFont-Monospace-Regular.ttf
 
 monospace:
 	@$(MAKE) base SRC=$(BASE) DST=out/monospace-base.sfd
