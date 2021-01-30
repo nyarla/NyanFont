@@ -1,10 +1,10 @@
 # Inheritance tree
 
 - NyanFont (This font)
-  - GenJyuuGothic (NyanFont borrowed CJK Kanji glyphs)
+  - GenJyuuGothic (NyanFont borrowed CJK Kanji glyphs from this font)
     - Source Hans Sans (GenJyuuGothic based on Source Hans Sans)
     - M+ OUTLINE FONTS (GenJyuuGothic borrowed some glyphs from this font)
-  - Rounded M+ (NyanFont borrowed some japanese glyphs)
+  - Rounded M+ (NyanFont borrowed some japanese glyphs from this font)
     - M+ OUTLINE FONTS (Rounded M+ based on M+ OUTLINE FONT)
   - Inconsolata (NyanFont borrowed english-related glyphs)
 
